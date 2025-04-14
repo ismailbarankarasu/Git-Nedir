@@ -1,10 +1,12 @@
+# Git Nedir? – Temelden Uzmanlığa Kapsamlı Rehber
 
-# Git Nedir? Temelden İleri Seviyeye Git Kullanımı
+![Git Logo](https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png)
+![Git Workflow](https://miro.medium.com/v2/resize:fit:1400/1*1E1MCKnD4mnLJgYkOZbJZw.png)
+![Branching Example](https://wac-cdn.atlassian.com/dam/jcr:813202ef-74e4-4e0a-9a16-20b3c3c4f76d/Branching-Strategies_Git-Branching-Strategy.svg)
 
-## 1. Git'e Giriş
+## 1. Giriş
 
-Git, yazılım geliştirme projelerinde kullanılan popüler bir **versiyon kontrol sistemidir (VCS)**. Bir projenin geçmişindeki tüm değişiklikleri izler, birden çok geliştiricinin aynı projede aynı anda çalışabilmesini sağlar ve hataların takibini kolaylaştırır. Git, projelerdeki dosyaların geçmişini takip etmek için veri yapıları kullanır ve bir dağıtık sistem olarak çalışır.
-
+Git, dosya versiyonlarını takip etmek ve yazılım projelerini yönetmek için kullanılan dağıtık bir versiyon kontrol sistemidir. Linus Torvalds tarafından 2005 yılında Linux çekirdeği geliştirmeleri için geliştirilmiştir. Git sayesinde, bir projenin zaman içindeki tüm değişimlerini kaydedebilir, önceki sürümlere geri dönebilir ve ekiplerle senkronize çalışabilirsiniz.
 ---
 
 ## 2. Git Temel Komutları
