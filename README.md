@@ -1,141 +1,168 @@
 
-<div align="center">
-  <h1> Git Nedir</h1>
-  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/ismail-baran-karasu-a98916227/">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
-  </a>
-  <a class="header-badge" target="_blank" href="https://twitter.com/ismaiBaranK">
-  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/ismailBaranK?style=social">
-  </a>
+# Git Nedir?
 
-<sub>Yazar:
-<a href="https://www.linkedin.com/in/ismail-baran-karasu-a98916227/" target="_blank">İsmail Baran KARASU</a><br>
-<small> Ekim, 2023</small>
-</sub>
+Git, yazılım geliştirme sürecinde kullanılan en popüler **versiyon kontrol sistemidir**. Kod üzerinde yapılan değişikliklerin izlenmesini ve yönetilmesini sağlar. Bir yazılım projesinde kodlar sürekli değişir ve güncellenir. Git, bu değişikliklerin kaydını tutarak, projeye daha iyi bir kontrol ve düzen sağlar. Git, projelerdeki tüm değişiklikleri yerel olarak saklar ve takım üyeleri arasında senkronize çalışmayı sağlar.
 
-</div>
-Git, yazılım geliştirme süreçlerinde kullanılan, hız odaklı, dağıtık çalışan bir sürüm kontrol ve kaynak kod yönetim sistemidir. İlk sürümü Linux çekirdeği'nin geliştirilmesinde kullanılmak üzere 2005 yılında bizzat Linus Torvalds tarafından tasarlanıp geliştirilmişdir.
+Bu repo, Git komutları ve temel kullanımının açıklamalarını içermektedir. Git'in ne olduğu, nasıl kullanıldığı ve temel komutların işlevleri hakkında bilgi edinmek için bu dokümanı takip edebilirsiniz.
 
-Git sürüm kontrol sistemini kullanan her bir çalışma dizini (proje), internet erişimi ya da merkezi bir depo olmaksızın tüm tarihçeyi tutan ve sürüm kontrol sisteminin tamamını içinde barındıran tam yetkili birer depodur. Aynı çalışma dizininin birçok depodan birindeki kopyasında yapılan değişiklikler diğerlerine güven temelli bir değerlendirmeyle kabul edilir; Güvenilmeyenden değişiklik alınmaz, o kendi ayrı sürümünü geliştirmeye devam eder.
+## İçerik
 
-Git'in şu anki yazılım bakıcılığını Junio Hamano üstlenmiş durumda. Git, GNU Genel Kamu Lisansı'nın 2. sürümüyle lisanslanmış bir özgür yazılımdır. 2.26.0 sürümünden itibaren Türkçe dil desteği sunmaktadır.
+- [Git Nedir?](#git-nedir)
+- [Git'in Temel Kavramları](#gitin-temel-kavramları)
+- [Git Komutları](#git-komutları)
+  - [`git init`](#git-init)
+  - [`git add`](#git-add)
+  - [`git commit`](#git-commit)
+  - [`git status`](#git-status)
+  - [`git log`](#git-log)
+  - [`git branch`](#git-branch)
+  - [`git checkout`](#git-checkout)
+  - [`git merge`](#git-merge)
+  - [`git remote add`](#git-remote-add)
+  - [`git push`](#git-push)
+  - [`git pull`](#git-pull)
+- [Git ve GitHub](#git-ve-github)
+- [Git ile Proje Yönetimi](#git-ile-proje-yönetimi)
 
+---
 
+## Git Nedir?
 
-# Git İle İlgili Temel Kavramlar 
-1. Depo (Repository):</b> Git projelerinin temelini oluşturan depo, proje dosyalarının ve sürüm geçmişinin saklandığı yerdir. Bu depo, yerel bir bilgisayar üzerinde veya uzak bir sunucuda bulunabilir.
-2. Taahhüt (Commit):</b> Bir taahhüt, projenin belirli bir anında yapılan değişikliklerin bir görüntüsünü temsil eder. Taahhütler, projenin sürüm geçmişini oluşturan temel yapı taşlarıdır.
-3. Dal (Branch):</b> Git projeleri genellikle farklı özellikler veya geliştirmeler üzerinde çalışırken farklı dallara ayrılır. Ana dal (genellikle ```"master"``` veya ```"main"``` olarak adlandırılır), projenin ana sürümünü temsil eder.
-4. Birleştirme (Merge)</b>: Farklı dallardaki değişiklikleri birleştirme işlemidir. Bu, farklı geliştiricilerin çalışmalarını bir araya getirme veya yeni bir özellik eklerken ana dala dahil etme sürecini içerir.
-5. İstemci ve Sunucu (Client and Server):</b> Git, hem yerel bilgisayarlarda çalışabilen bir istemci olarak hem de uzak depolara erişim sağlayabilen bir sunucu olarak kullanılabilir. GitHub ve GitLab gibi hizmetler, uzak sunucular sağlar ve işbirliği yapmayı kolaylaştırır.
+Git, bir **versiyon kontrol sistemi** olarak yazılımdaki tüm değişikliklerin kaydını tutar. Bu sayede yazılımcılar projelerinde yaptıkları değişiklikleri kolayca takip edebilir, eski sürümlere geri dönebilir ve başkalarıyla işbirliği yapabilirler. Git, özellikle ekip çalışmasında önemli bir rol oynar, çünkü aynı projede birden fazla kişi aynı anda çalışabilir ve Git, tüm bu değişiklikleri birleştirip düzgün bir şekilde yönetir.
 
-# Git Nasıl Kullanılır
-## 1- Projeniz için yerel Git deposu (repository) oluşturma
-Projeniz yeni olsun veya olmasın tek satır komutla projeniz için Git deposu oluşturabilirsiniz.
-Komut ekranını açın ve komut ekranından proje klasörünüze ilerleyin. Projenizin ana klasöründe olduğunuzdan emin olduktan sonra <b>```‘git init’```</b> komutunu girin.
+---
 
-![Project 1](gitinit.PNG)
+## Git'in Temel Kavramları
 
-Projemizde <b>```.git```</b> adında gizli bir klasör oluşması gerekiyor. Şimdi de <b>```‘git status’```</b> komutunu girelim. Bu komut projemizde en son yapılan kayıttan (commit) sonra yapılan değişiklikleri gösteriyor. Biz daha önce herhangi bir kayıt yapmadığımız için de şu an bütün dosyalar yeni birer değişiklik olarak görünmekte.
+- **Repository (Depo):** Git’in takip ettiği tüm dosyaların bulunduğu klasördür. Hem yerel (bilgisayarındaki) hem de uzak (örneğin GitHub'daki) depolar olabilir.
+- **Commit:** Projendeki değişikliklerin kaydedildiği anıdır. Her commit bir “anlık” sürüm olarak kaydedilir.
+- **Branch (Dal):** Git’te paralel olarak birden fazla farklı kod geliştirebilmek için dallar kullanılır.
+- **Merge:** Farklı dallardaki değişikliklerin birleştirilmesidir.
+- **Push:** Yapılan değişikliklerin uzak depoya gönderilmesidir.
+- **Pull:** Uzak depodaki güncellemelerin yerel depoya indirilmesidir.
 
-![Project 2](gitstatus.PNG)
+---
 
-Şimdi de bütün dosyalarımızı kayıt listesine ekleyip ardından da kayıt yapacağız. Bunun için <b>```‘git add .’```</b> komutunu girin. Normalde <b>```‘git add’```</b> komutunun en sonuna eklemek istediğiniz dosyayı belirtirsiniz. Bizim komut sonunda kullandığımız nokta ise bütün dosyaları ekle anlamına gelmekte.
+## Git Komutları
 
-![Project 3](gitaddvegittcommit.PNG)
+Aşağıda en yaygın kullanılan **Git komutları** ve ne işe yaradıkları açıklanmıştır:
 
-Fakat bunu yaparken bir hata alıyorum ve kullanıcı adı ile mailimi git yazılımına tanıtmamı istiyor:
+### `git init`
+**Açıklama:**  
+Git deposu başlatır. Git ile projeyi izlemeye başlamak için kullanılır.
 
-![Project 4](gitkullaniciadivemail.PNG)
+```bash
+git init
+```
 
-Kayıt işlemi için de <b>```‘git commit -m “ilk kayit” ’```</b> komutunu girin. Bu komutu girdiğiniz anda ekrana projenizdeki bütün dosyaların tek tek eklendiğini belirten satırlar görürsünüz.
+### `git add`
+**Açıklama:**  
+Çalışma alanında yapılan değişiklikleri "staging" alanına ekler. Bu, commit için hazır hale getirilmiş değişiklikleri ifade eder.
 
-![Project 5](gitcommit.PNG)
+```bash
+git add dosya.txt  # Belirli dosyayı ekler
+git add .  # Tüm değişiklikleri ekler
+```
 
-Şu an tekrar <b>```‘git status’```</b> komutunu girersek ekranda en son yapılan kayıttan sonra herhangi bir değişiklik yapılmadığını gösteren bir yazı görücez.
+### `git commit`
+**Açıklama:**  
+Staging alanındaki değişiklikleri kaydeder. Her commit ile projede bir sürüm oluşturulur.
 
-![Project 6](gitstatusp.PNG)
+```bash
+git commit -m "Değişiklik mesajı"
+```
 
-Artık bilgisayarımızda projemiz için Git depomuz var. Projemiz üzerinde istediğimiz çılgınlıkları yapabiliriz. Çünkü bir şeyleri bozarsak projemizi eski çalışan haline döndürmek artık tek satır komutla mümkün olacaktır.
+### `git status`
+**Açıklama:**  
+Çalışma alanındaki ve staging alanındaki değişikliklerin durumunu gösterir. Hangi dosyaların değiştirilip commit’e eklendiğini görmeni sağlar.
 
-## 2- Temel Git komutları ve kullanımı
-Şimdi de Git komutlarından en çok kullanılanları açıklayıp bir iki örnek göstereceğim.
+```bash
+git status
+```
 
-Gidip projenizde herhangi bir dosyada birkaç değişiklik yapın ve sonra <b>```‘git status’```</b> komutunu kullanarak bu değişikliklerin deponuza nasıl yansıdığını görün. Ben projemde <b>```App.js```</b> dosyasında değişiklik yaptım ve sonuç bu şekilde oldu.
+### `git log`
+**Açıklama:**  
+Commit geçmişini gösterir. Hangi değişikliklerin ne zaman yapıldığını görmek için kullanılır.
 
-![Project 7](gitstatusbp.PNG)
+```bash
+git log
+```
 
-Komut satırında son kayıttan sonra değişen dosyaların listesini görebilirsiniz. Şu an da yapacağımız şey dosyaları kayıta eklemek ve sonra da kayıt işlemini yapmak. Bunu biraz önce yaptığımız gibi sırasıyla <b>```‘git add .’```</b> ve <b>```‘git commit -m “ikinci kayıt” ‘```</b> şeklinde yapabilirsiniz. Ama bu sefer dosyaları ekleme komutunu kayıt komutuyla birleştirerek yapacağız. Komut satırına <b>```‘git commit -am “ikinci kayıt” ‘```</b> komutunu girin. Burada ek olarak kullandığımız a harfi kayıt işlemini yaparken bütün değişikliğe uğramış dosyaları da kayıta ekleyecektir.
+### `git branch`
+**Açıklama:**  
+Projede kullanılan dalları listeler. Yeni bir dal oluşturmak için de kullanılır.
 
-![Project 8](gitcommitam.PNG)
+```bash
+git branch              # Mevcut dalları listeler
+git branch yeni-dal     # Yeni bir dal oluşturur
+```
 
-### Yapılan değişiklikleri görme
+### `git checkout`
+**Açıklama:**  
+Başka bir dala geçiş yapmanı sağlar. Bu komut ile projede farklı geliştirmelere başlanabilir.
 
-Kayıt işlemini yapmadan önce <b>```‘git diff’```</b> komutunu kullanarak kaydedilmeyen değişikliklerin (eklenen ve çıkarılan satırların) ne olduğunu görebilirsiniz. Uzun bir dosyada değişiklik yapıldıysa <b>```‘enter’```</b> tuşunu kullarak satır satır ilerlemeniz gerekmektedir. Dosyanın sonuna gelmek istemiyorsanız da klavyeden <b>```‘q’```</b> tuşuna basıp çıkabilirsiniz.
+```bash
+git checkout ana-dal     # Ana dalına geçiş
+git checkout yeni-dal    # Yeni dalına geçiş
+```
 
-### Yapılan değişiklikleri geri çevirme
+### `git merge`
+**Açıklama:**  
+İki dalı birleştirir. Genellikle yeni özellikler üzerinde çalışan bir dalı ana dala entegre etmek için kullanılır.
 
-Eğer yaptığınız değişiklikleri kaydetmek istemiyorsanız (örneğin son değişiklikler projenin bozulmasına sebep oldu ve geri eski haline döndürmek çok uzun sürüyorsa) <b> ```‘git reset —hard HEAD’```</b> komutuyla projenizi en son kayıt yapılan haline döndürebilirsiniz.
+```bash
+git checkout ana-dal     # Ana dalına geçiş yap
+git merge yeni-dal       # Yeni dalı ana dal ile birleştir
+```
 
-## 3-Projenizi uzak bir depoya (remote repository) yerleştirme
+### `git remote add`
+**Açıklama:**  
+Yerel projeyi uzaktaki bir Git deposuna bağlar.
 
-Projenizi uzak bir depoya yerleştirmek için önce öyle bir depoya sahip olmanız gerekmekte. İnternette bu hizmeti sağlayan GitHub ve BitBucket gibi servisler bulabilirsiniz. Ben yazının devamında GitHub üzerinden devam edeceğim.
+```bash
+git remote add origin https://github.com/kullanici/repo.git
+```
 
-GitHub’a kayıtlı değilseniz kaydolun. Eğer programcı olarak uzun yıllar çalışmayı düşünüyorsanız kesinlikle bir GitHub hesabı açmanız gerek. Profil sayfanızı açtığınızda orta kısımda üç tane sekme göreceksiniz. Bunlardan ilki (contributions) sahip olduğunuz veya katkı yaptığınız projeleri gösterir. İkinci kısım da (repositories) sahip olduğunuz veya üzerinde yetki sahibi olduğunuz depoları gösterir. Son sekme de (public activities) GitHub üzerindeki projelerde aleni yaptığınız faaliyetleri görürsünüz.
+### `git push`
+**Açıklama:**  
+Yerel depodaki değişiklikleri uzak depoya gönderir.
 
-Şu an yapmamız gereken şey depolar sekmesine girip oradaki yeni düğmesine (en sağdaki yeşil düğme) basarak yeni bir depo oluşturmaktır.
+```bash
+git push -u origin ana-dal
+```
 
-![Project 9](github.PNG)
+### `git pull`
+**Açıklama:**  
+Uzak depodaki değişiklikleri yerel depoya indirir.
 
-Karşınıza çok basit bir form çıkacaktır. Formun en üstünde deponun sahibi olacak hesabı seçebileceğiniz (GitHub’da birden fazla hesap ile çalışıyorsanız) ve deponun ismini girebileceğiniz kısımlar var. Onların hemen altında da projenin basit bir açıklamasını gireceğiniz ve projenin herkese açık olup olmadığını seçebileceğiniz kısımlar var.
-Formun en altında da projenizi ‘beni oku dosyasıyla beraber oluştur’ diye bir seçenek var biz onu kullanmayacağız. Onun hemen altında da iki tane seçenek var. Bunların açıklaması kısaca şöyle:
- 1. <b>.gitignore:</b> Bu dosya proje içinde bulunan ama uzak depoda bulunmasını istemediğiniz dosyaları içerir. Genelde asıl kullanım amacı, proje derlendiği zaman oluşan dosyaları uzak depoya koymamaktır. Ayrıca kullandığınız IDE e bağlı dosyaların da uzak depoya konmasını engelleyebilirsiniz. Çünkü bu dosyalar siz bilgisayarınızda derleme yaptığınızda oluşacaktır. Ayrıca her proje türünde (web, ios, android) konması gereksiz olan dosya türleri farklıdır.
- 2. <b>licence:</b> Lisans da depoya koyduğunuz projenin başkaları tarafından kullanılması durumunda sorumlu olacakları lisans şartlarını içerir.
-Bu projemiz için bunları da geçeceğiz ama ileride ```.gitignore``` kullanmanızı şiddetle tavsiye ederim.
+```bash
+git pull
+```
 
-![Project 10](githubnewrepo.PNG)
-![Project 11](createrepo.PNG)
+---
 
-Ben şimdilik deneme adında bir proje oluşturuyorum. Daha sonra depoları silebildiğiniz şuan için isime çok da önem vermeyebilirsiniz.
+## Git ve GitHub
 
-Create repository düğmesine basarak deponuzu oluşturun. Depo oluştuktan sonra karşınıza çıkan sayfada projenizi bu depoya nasıl koyabileceğinizi anlatan bir kısım göreceksiniz. Bizim zaten bir git projemiz olduğundan sadece projemizi bu depoya yükleme işlemi yapacağız. O da dökümantasyonun bu kısımda anlatılmış vaziyette zaten.
+Git, **yerel** bir versiyon kontrol sistemidir. GitHub ise **bulut tabanlı** bir Git depolama platformudur. Git, projeyi bilgisayarında takip ederken, GitHub uzak bir sunucuda projeni saklar.
 
-![Project 12](importrepo.PNG)
+GitHub üzerinden projeye katkıda bulunan kişiler, kendi bilgisayarlarında değişiklik yapabilir ve bu değişiklikleri GitHub üzerinden paylaştırabilirler.
 
-Projenizde yapılan değişiklikleri tekrar <b>```git status```</b> komutuyla kontrol edin ve kayıt edilmemiş bir değişiklik varsa bunları <b>```git commit -am “kayıt mesajı”```</b> komutuyla kaydedin. Ve artık bize GitHub sayfasında da gösterildiği gibi<b> ```git remote add origin  https://github.com/DifferenTismail/deneme.git```</b> komutuyla projenizi uzak deponuz ile eşleştirebilirsiniz. (Tabi bu komutu kullanırken kendi deponuzun URL’sini kullanmalısınız.) Bu esnada size github hesabınız için kullanıcı adı ve parola sorulacaktır. Bu bilgileri de girerseniz projeniz uzak depo ile eşleşmiş olacaktır.
+---
 
-Ancak projenizi deponuzda hemen göremezsiniz. Projenizi depoya göndermek için de <b>```git push -u origin main```</b> komutunu kullanmalısınız. Bu komutu girdikten sonra komut satırında yükleme işlemi yapıldığını göreceksiniz. Bu esnada projeniz uzak depoya yükleniyor olacaktır ve sonuç olarak da komut ekranınız buna benzer bir sonuç göstermelidir.
+## Git ile Proje Yönetimi
 
-![Project 13](gitpush.PNG)
+Git ve GitHub, özellikle büyük projelerde ekip çalışmasını kolaylaştırır. Projeyi **branching** ile farklı bölümlere ayırabilir ve her biri üzerinde bağımsız olarak çalışabilirsiniz. Değişiklikler tamamlandığında, **merge** ile bu bölümleri birleştirirsiniz.
 
-Şimdi GitHub’daki proje sayfanıza giderseniz biraz önce size projenizi nasıl ekleyeceğiniz anlatan mesajlar yerine projenizin dosyalarını göreceksiniz.
+Git, ayrıca **commit** mesajları sayesinde hangi değişikliğin hangi amacı taşıdığını belgeler ve geri dönmek gerektiğinde eski sürümlere dönme imkanı sağlar.
 
-![Project 14](reactrepo.PNG)
-
-## Yapılan Değişikliği Uzak Depoya Kaydetme
-Artık bilgisayarımızda yerel bir git projesi ve uzakta da buna karşılık gelen bir uzak depo bulunmakta. GitHub içinde klasörlerde gezinerek dosyalarınıza bakabilirsiniz. Şimdi projede değişiklik yapıp bunu uzak depoya kaydedeceğiz.
-
-Ben kendi projemde App.js dosyamdaki veriyi değiştiriyorum.
-
-![Project 15](gitstatuspardi.PNG)
-
-Uzak deponuzda GitHub sayfasından değişiklik yaptığınız dosyayı açarsanız orada bir değişikliğin olmadığını göreceksiniz.
-Şimdi de ```git commit -am “ilk degisiklik”``` komutuyla değişikliği kayıt altına alın. Bu aşamada hala uzak deponuzda bir değişiklik olmayacaktır. Push komutunu kullanana kadar yaptığınız bütün değişiklikler yerel git deponuzda kalır. Bu değişikliklerin uzak depoda da etkisini göstermesini istiyorsanız ``` git push origin main ```komutunu kullanın.
-
-![Project 16](gitcommitpardi.PNG)
-![Project 17](gitpushpardi.PNG)
-
-Bu komuttan sonra GitHub sayfasından değişiklik yaptığınız dosyayı açarsanız değişikliklerin buraya da yansıdığını görebilirsiniz.
-
-![Project 18](githubpardi.PNG)
-
-
-Burada üst kısımda da baktığınız dosya üzerinde bu zamana kadar kaç kişinin değişiklik yaptığını, en son değişikliğin kim tarafından ne zaman yapıldığını ve bu değişikliğin mesajının da ne olduğunu görebilirsiniz.
-
-Profil fotoğrafı bulunan satırda satırın en sonunda yazan ilk degisiklik yazısına tıklarsanız o kayıtta hangi değişikliklerin yapıldığını görebilirsiniz. (Aynı şekilde sağ üstteki History düğmesine basarak bu dosya üzerinde bu zamana kadar yapılan kayıtların listesini görebilirsiniz)
-
-![Project 19](gitcomm.PNG)
+---
 
 ## Sonuç
-Sonuç olarak artık projemizde git kullanmaya başlamış olduk. Artık projenizde git’i nasıl kullanacağınızı, değişiklikleri nasıl kaydedeceğinizi, nasıl uzak depo oluşturup projenizi oraya aktarabileceğinizi biliyorsunuz.
-Umarım bu anlatılanlar size zor gelmemiştir çünkü bu anlattıklarım daha buz dağının görünen kısmı. Asıl git kullanımı daha yeni başlıyor diyebilirim. Siz ilk olarak git’e alışmaya ve onu anlamaya çalışın. İleride, bir proje üzerinde birden fazla kişi olarak nasıl ve hangi yollarla çalışabilirsiniz onlardan da bahsedeceğim.
+
+Git, yazılım geliştirme sürecinin temel taşlarından biridir. Değişiklikleri izlemek, yönetmek ve ekip çalışmasını kolaylaştırmak için olmazsa olmaz bir araçtır. Bu rehberde, Git’in temel komutları ve nasıl kullanılacağı hakkında bilgi edindiniz.
+
+Daha fazla bilgi için [Git resmi belgelere](https://git-scm.com/doc) göz atabilirsiniz.
+
+---
+
+**Proje Linki:** [Git-Nedir GitHub Repo](https://github.com/ismailbarankarasu/Git-Nedir)
