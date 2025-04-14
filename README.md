@@ -1,8 +1,6 @@
 # Git Nedir? – Temelden Uzmanlığa Kapsamlı Rehber
 
 ![Git Logo](https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png)
-![Git Workflow](https://miro.medium.com/v2/resize:fit:1400/1*1E1MCKnD4mnLJgYkOZbJZw.png)
-![Branching Example](https://wac-cdn.atlassian.com/dam/jcr:813202ef-74e4-4e0a-9a16-20b3c3c4f76d/Branching-Strategies_Git-Branching-Strategy.svg)
 
 ## 1. Giriş
 
